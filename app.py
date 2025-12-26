@@ -42,6 +42,16 @@ with st.sidebar:
     - **Leaking Valves:** Sudut membulat.
     - **Parted Rod:** Garis horizontal.
     """)
+#--tambahan ----
+# Tambahkan ini di sidebar untuk debugging
+if st.sidebar.button("Cek Daftar Model"):
+    genai.configure(api_key=api_key)
+    for m in genai.list_models():
+        if 'generateContent' in m.supported_generation_methods:
+            st.sidebar.write(m.name)
+
+
+# ===================================================
 
 # --- 4. Fungsi Analisa AI ---
 def analyze_dynocard(image, api_key):
@@ -50,8 +60,8 @@ def analyze_dynocard(image, api_key):
         
         # Konfigurasi Model (Force JSON Mode)
         # model = genai.GenerativeModel('gemini-1.5-flash')
-        model = genai.GenerativeModel('gemini-1.5-pro')
-        # model = genai.GenerativeModel('gemini-1.5-flash-latest')
+        # model = genai.GenerativeModel('gemini-1.5-pro')
+        model = genai.GenerativeModel('gemini-1.5-flash-latest')
         
         prompt = """
         Bertindaklah sebagai Senior Petroleum Engineer. Analisa gambar Sucker Rod Pump (SRP) Dynamometer Card berikut.
@@ -146,6 +156,7 @@ with col2:
 st.divider()
 
 st.caption("© 2024 SRP AI Analyzer | Gunakan hasil ini sebagai referensi awal sebelum pengecekan lapangan.")
+
 
 
 
