@@ -49,9 +49,9 @@ def analyze_dynocard(image, api_key):
         genai.configure(api_key=api_key)
         
         # Konfigurasi Model (Force JSON Mode)
-       # model = genai.GenerativeModel('gemini-1.5-flash')
-         model = genai.GenerativeModel('gemini-1.5-pro')
-       # model = genai.GenerativeModel('gemini-1.5-flash-latest')
+        # model = genai.GenerativeModel('gemini-1.5-flash')
+        model = genai.GenerativeModel('gemini-1.5-pro')
+        # model = genai.GenerativeModel('gemini-1.5-flash-latest')
         
         prompt = """
         Bertindaklah sebagai Senior Petroleum Engineer. Analisa gambar Sucker Rod Pump (SRP) Dynamometer Card berikut.
@@ -146,5 +146,6 @@ with col2:
 st.divider()
 
 st.caption("© 2024 SRP AI Analyzer | Gunakan hasil ini sebagai referensi awal sebelum pengecekan lapangan.")
+
 
 
