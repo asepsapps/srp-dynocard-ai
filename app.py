@@ -6,7 +6,7 @@ import os
 
 # --- 1. Konfigurasi Halaman ---
 st.set_page_config(
-    page_title="SRP Dynocard AI Analyzer",
+    page_title="Dynocard AI Analyzer",
     page_icon="🛢️",
     layout="wide"
 )
@@ -42,16 +42,7 @@ with st.sidebar:
     - **Leaking Valves:** Sudut membulat.
     - **Parted Rod:** Garis horizontal.
     """)
-#--tambahan ----
-# Tambahkan ini di sidebar untuk debugging
-if st.sidebar.button("Cek Daftar Model"):
-    genai.configure(api_key=api_key)
-    for m in genai.list_models():
-        if 'generateContent' in m.supported_generation_methods:
-            st.sidebar.write(m.name)
 
-
-# ===================================================
 
 # --- 4. Fungsi Analisa AI ---
 def analyze_dynocard(image, api_key):
@@ -96,8 +87,8 @@ def analyze_dynocard(image, api_key):
         return {"error": str(e)}
 
 # --- 5. Layout Utama ---
-st.title("🛢️ SRP Dynocard AI Analyzer")
-st.markdown("Analisa Kerusakan Sumur SRP Berbasis Visi Komputer & AI")
+st.title("🛢️ Dynocard AI Analyzer")
+st.markdown("Analisa Kerusakan Sumur SRP Berbasis Computer Vision & AI")
 st.divider()
 
 col1, col2 = st.columns([1, 1], gap="large")
@@ -155,7 +146,8 @@ with col2:
 # --- 6. Footer ---
 st.divider()
 
-st.caption("© 2024 SRP AI Analyzer | Gunakan hasil ini sebagai referensi awal sebelum pengecekan lapangan.")
+st.caption("© 2024 Aruna Dynacard Analyzer | Gunakan hasil ini sebagai referensi awal sebelum pengecekan lapangan.")
+
 
 
 
